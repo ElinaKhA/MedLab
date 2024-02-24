@@ -1,0 +1,55 @@
+﻿<Window x:Class="Khamitova4432.Windows.DoctorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Khamitova4432.Windows"
+        mc:Ignorable="d"
+        Title="Главная страница врача" Height="450" Width="450" WindowStartupLocation="CenterScreen" Background="#FFEFF2F7" >
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="/Resources/logo2.png" HorizontalAlignment="Left" Height="40" Width="40" />
+            <TextBlock Grid.Column="1" Text="Вычисление возникновения риска сердечно-сосудистых заболеваний " 
+                       FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       TextWrapping="Wrap" MaxWidth="200"/>
+            <Button Grid.Column="2" Height="30" Width="40" 
+                    Content="Выйти" FontFamily="Arial" Background="#FF679FD1" 
+                    BorderBrush="#FF679FD1" Foreground="White" Name="ExitBtn" Click="ExitBtn_Click"/>
+        </Grid>
+        <Grid Grid.Row="1" HorizontalAlignment="Center" Width="380" Margin="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Главная страница" FontFamily="Arial" 
+                   VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="ФИО" FontFamily="Arial" 
+                   VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Предстоящий прием: хх.хх.хх в хх.хх ФИО пациента" HorizontalAlignment="Center"
+                   FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,0,10"/>
+            <Button Grid.Row="3" Grid.Column="0" Height="30" Width="150" Margin="0,0,0,10"
+                    Content="Записи" FontSize="14" FontFamily="Arial" Background="#FF679FD1" 
+                    BorderBrush="#FF679FD1" Foreground="White" Name="AppointmentsBtn" Click="AppointmentsBtn_Click" />
+            <Button Grid.Row="3" Grid.Column="1" Height="30" Width="170" Margin="0,0,0,10"
+                    Content="Работа с пациентами" FontSize="14" FontFamily="Arial" Background="#FF679FD1" 
+                    BorderBrush="#FF679FD1" Foreground="White" Name="WorkWithPatientsWinBtn" Click="WorkWithPatientsWinBtn_Click" />
+        </Grid>
+    </Grid>
+</Window>
