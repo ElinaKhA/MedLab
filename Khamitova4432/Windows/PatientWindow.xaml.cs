@@ -24,36 +24,44 @@ namespace Khamitova4432.Windows
             InitializeComponent();
         }
 
-        private void LabResultsWinBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RiskWinBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void AppointmentWinBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ChangePatienteWinBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TreatmentPlanWinBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();
             mw.Show();
             Close();
+        }
+
+        private void RiskWinBtn_Click(object sender, RoutedEventArgs e)
+        {
+            RiscCalculateWindow rw = new RiscCalculateWindow(0, 1);
+            rw.Show();
+            Close();
+        }
+
+        private void AppointmentWinBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AppointmentWindow aw = new AppointmentWindow(0,1);
+            aw.Show();
+            Close();
+        }
+
+        private void LabResultsWinBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LabResultsWindow lw = new LabResultsWindow();
+            lw.Show();
+            Close();
+        }
+
+        private void TreatmentPlanWinBtn_Click(object sender, RoutedEventArgs e)
+        {
+            TreatmentPlanWindow tw = new TreatmentPlanWindow();
+            tw.Show();
+            Close();
+        }
+
+        private void ChangePatientWinBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
