@@ -37,7 +37,7 @@
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Авторизация" FontFamily="Arial" 
                    VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center" />
             <Label Grid.Row="1" Grid.Column="0" Content="Логин" FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,0"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left" />
+            <TextBox Name="loginTb" Grid.Row="1" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left" />
             <Label Grid.Row="2" Grid.Column="0" Content="Пароль" FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,0"/>
             <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
             <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Height="30" Width="150" 

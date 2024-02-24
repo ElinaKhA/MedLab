@@ -33,7 +33,7 @@ namespace Khamitova4432.Windows
 
         private void RegistrationBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            //если от страницы доктора, то вернуть обратно на страницу доктора
         }
     }
 }

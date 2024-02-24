@@ -35,7 +35,19 @@ namespace Khamitova4432
 
         private void AuthorizationBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (loginTb.Text == "0")
+            {
+                PatientWindow pw = new PatientWindow();
+                pw.Show();
+                Close();
+            }
+            else if (loginTb.Text == "1")
+            {
+                DoctorWindow dw = new DoctorWindow();
+                dw.Show();
+                Close();
+            }
+           
         }
     }
 }
