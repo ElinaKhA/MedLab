@@ -42,19 +42,19 @@
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Регистрация" FontFamily="Arial" 
                    VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center" />
             <Label Grid.Row="1" Grid.Column="0" Content="Фамилия" FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,0"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left" />
+            <TextBox Name="ftb"  Grid.Row="1" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left" />
             <Label Grid.Row="2" Grid.Column="0" Content="Имя" FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,0"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
+            <TextBox Name="ntb" Grid.Row="2" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Отчество" FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,0"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
+            <TextBox Name="ltb" Grid.Row="3" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
             <Label Grid.Row="4" Grid.Column="0" Content="Почта" FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,0"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
+            <TextBox Name="etb" Grid.Row="4" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Пароль" FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,0"/>
-            <TextBox Grid.Row="5" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
+            <TextBox Name="ptb" Grid.Row="5" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
             <Label Grid.Row="6" Grid.Column="0" Content="Дата рождения" FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,0"/>
-            <TextBox Grid.Row="6" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
+            <TextBox Name="dtb" Grid.Row="6" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
             <Label Grid.Row="7" Grid.Column="0" Content="Пол" FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,0"/>
-            <ComboBox Grid.Row="7" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
+            <ComboBox  Name="gcb" Grid.Row="7" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
             <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Height="30" Width="150" 
                     Content="Зарегистрироваться" FontSize="14" FontFamily="Arial" 
                     Background="#FF679FD1" BorderBrush="#FF679FD1" Foreground="White" 
