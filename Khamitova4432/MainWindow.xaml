@@ -39,7 +39,7 @@
             <Label Grid.Row="1" Grid.Column="0" Content="Логин" FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,0"/>
             <TextBox Name="loginTb" Grid.Row="1" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left" />
             <Label Grid.Row="2" Grid.Column="0" Content="Пароль" FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,0"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
+            <TextBox Name="passTb" Grid.Row="2" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Left"/>
             <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Height="30" Width="150" 
                     Content="Войти" FontSize="14" FontFamily="Arial" Background="#FF679FD1" 
                     BorderBrush="#FF679FD1" Foreground="White" Name="AuthorizationBtn" Click="AuthorizationBtn_Click"/>

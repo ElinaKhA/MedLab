@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Khamitova4432.DataBase;
 
 
 namespace Khamitova4432
@@ -22,6 +23,7 @@ namespace Khamitova4432
     /// </summary>
     public partial class MainWindow : Window
     {
+        medicdbContext _con = new medicdbContext();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,19 +37,49 @@ namespace Khamitova4432
 
         private void AuthorizationBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (loginTb.Text == "0")
+            try
             {
-                PatientWindow pw = new PatientWindow();
-                pw.Show();
-                Close();
+                if (_con.Patients.Any(u => u.Email == loginTb.Text && u.Password == passTb.Text))
+                {
+                    LogInUser(1);
+                }
+                else if (_con.Doctors.Any(u => u.Email == loginTb.Text && u.Password == passTb.Text))
+                {
+                    LogInUser(2);
+                }
+                else
+                {
+                    MessageBox.Show("Такого пользователя не существует");
+                }
             }
-            else if (loginTb.Text == "1")
+            catch
             {
-                DoctorWindow dw = new DoctorWindow();
-                dw.Show();
-                Close();
+                MessageBox.Show("Ошибка");
             }
-           
+        }
+        private void LogInUser(int roleId)
+        {
+            try
+            {
+                if (roleId == 1)
+                {
+                    var SelectedUser = _con.Patients.FirstOrDefault(u => u.Email == loginTb.Text && u.Password == passTb.Text);
+                    PatientWindow pw = new PatientWindow(SelectedUser);
+                    pw.Show();
+                    Close();
+                }
+                else if (roleId == 2)
+                {
+                    var SelectedUser = _con.Patients.FirstOrDefault(u => u.Email == loginTb.Text && u.Password == passTb.Text);
+                    DoctorWindow dw = new DoctorWindow();
+                    dw.Show();
+                    Close();
+                }
+            }
+              catch
+            {
+                MessageBox.Show("Ошибка");
+            }
         }
     }
 }
