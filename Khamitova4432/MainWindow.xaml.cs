@@ -30,7 +30,7 @@ namespace Khamitova4432
         }
         private void RegWindowBtn_Click(object sender, RoutedEventArgs e)
         {
-            RegistrationWindow rw = new RegistrationWindow();
+            RegistrationWindow rw = new RegistrationWindow(0);
             rw.Show();
             Close();
         }
@@ -70,8 +70,8 @@ namespace Khamitova4432
                 }
                 else if (roleId == 2)
                 {
-                    var SelectedUser = _con.Patients.FirstOrDefault(u => u.Email == loginTb.Text && u.Password == passTb.Text);
-                    DoctorWindow dw = new DoctorWindow();
+                    var SelectedDoct = _con.Doctors.FirstOrDefault(u => u.Email == loginTb.Text && u.Password == passTb.Text);
+                    DoctorWindow dw = new DoctorWindow(SelectedDoct);
                     dw.Show();
                     Close();
                 }
