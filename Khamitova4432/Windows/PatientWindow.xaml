@@ -44,7 +44,7 @@
                    VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
                 <Label Name="fiolb" Grid.Row="1" Grid.Column="0" Content="ФИО" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
-                <Label Grid.Row="1" Grid.Column="1" Content="Риск: " HorizontalAlignment="Right"
+                <Label Name="risklb" Grid.Row="1" Grid.Column="1" Content="Риск: " HorizontalAlignment="Right"
                    FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,10"/>
                 <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="30" Width="150" 
                     Content="Вычислить риск" FontSize="14" FontFamily="Arial" Background="#FF679FD1" Margin="0,0,0,10"

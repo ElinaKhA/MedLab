@@ -22,11 +22,21 @@ namespace Khamitova4432.Windows
     public partial class PatientWindow : Window
     {
         int idP = 0;
+        medicdbContext _con = new medicdbContext();
         public PatientWindow(Patient patient)
         {
             InitializeComponent();
             fiolb.Content = $"{patient.Surname} {patient.Name} {patient.LastName}";
             idP = patient.Id;
+            var lastRisk = patient.Risks.OrderByDescending(r => r.DateOfCalculated).FirstOrDefault();
+            if (lastRisk != null)
+            {
+                risklb.Content = $"Риск: {lastRisk.CalculatedRisk}";
+            }
+            else
+            {
+                risklb.Content = "Риск не вычислен";
+            }
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -45,21 +55,23 @@ namespace Khamitova4432.Windows
 
         private void AppointmentWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            AppointmentWindow aw = new AppointmentWindow(0,1);
+            AppointmentWindow aw = new AppointmentWindow(0,idP);
             aw.Show();
             Close();
         }
 
         private void LabResultsWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            LabResultsWindow lw = new LabResultsWindow();
+            var selectedPatient = _con.Patients.FirstOrDefault(u => u.Id == idP);
+            LabResultsWindow lw = new LabResultsWindow(selectedPatient);
             lw.Show();
             Close();
         }
 
         private void TreatmentPlanWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            TreatmentPlanWindow tw = new TreatmentPlanWindow();
+            var selectedPatient = _con.Patients.FirstOrDefault(u => u.Id == idP);
+            TreatmentPlanWindow tw = new TreatmentPlanWindow(selectedPatient);
             tw.Show();
             Close();
         }

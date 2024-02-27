@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Khamitova4432.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace Khamitova4432.Windows
     /// </summary>
     public partial class TreatmentPlanWindow : Window
     {
-        public TreatmentPlanWindow()
+        public TreatmentPlanWindow(Patient patient)
         {
             InitializeComponent();
         }
