@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Khamitova4432.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,16 @@ namespace Khamitova4432.Windows
     /// </summary>
     public partial class WorkWithPatientsWindow : Window
     {
-        public WorkWithPatientsWindow()
+        Doctor doct;
+        public WorkWithPatientsWindow(Doctor doctor)
         {
             InitializeComponent();
+            doct = doctor;
         }
 
         private void RegPatientBtn_Click(object sender, RoutedEventArgs e)
         {
-            RegistrationWindow rw = new RegistrationWindow();
+            RegistrationWindow rw = new RegistrationWindow(doct.Id);
             rw.Show();
             Close();
         }
@@ -40,13 +43,14 @@ namespace Khamitova4432.Windows
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            DoctorWindow dw = new DoctorWindow();
+            DoctorWindow dw = new DoctorWindow(doct);
             dw.Show();
             Close();
         }
 
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
+            //тут реализовать выбор из списка
             PatientProfileForDoctorWindow pw = new PatientProfileForDoctorWindow();
             pw.Show();
             Close();

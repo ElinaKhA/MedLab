@@ -26,9 +26,9 @@ namespace Khamitova4432.Windows
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            WorkWithPatientsWindow pw = new WorkWithPatientsWindow();
-            pw.Show();
-            Close();
+            //WorkWithPatientsWindow pw = new WorkWithPatientsWindow();
+            //pw.Show();
+            //Close();
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
