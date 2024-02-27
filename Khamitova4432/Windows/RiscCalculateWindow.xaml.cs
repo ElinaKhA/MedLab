@@ -33,7 +33,7 @@ namespace Khamitova4432.Windows
             pscvrmCb.Items.Add("Вторичный");
             hypertensionCb.Items.Add("Нет");
             hypertensionCb.Items.Add("Да");
-            smokingCb.Items.Add("Нет");
+            smokingCb.Items.Add("Никогда не курил");
             smokingCb.Items.Add("Раньше курил");
             smokingCb.Items.Add("Да");
         }
@@ -49,9 +49,10 @@ namespace Khamitova4432.Windows
         {
             if (identifr==0)
             {
-                //PatientWindow pw = new PatientWindow();
-                //pw.Show();
-                //Close();
+                var selectedPatient = _con.Patients.FirstOrDefault(u => u.Id == idP);
+                PatientWindow pw = new PatientWindow(selectedPatient);
+                pw.Show();
+                Close();
             }
             else
             {
@@ -68,7 +69,6 @@ namespace Khamitova4432.Windows
             float pscvrm=0;
             try
             {
-
                 if (smokingCb.SelectedItem.ToString()!="" && hypertensionCb.SelectedItem.ToString() != "" && pscvrmCb.SelectedItem.ToString()!=""
                     && mdrdTb.Text!="" && glucoseTb.Text != "" && holesterolTb.Text != "" && sistprTb.Text != "" && diastprTb.Text != ""
                     && bmiTb.Text != "")
@@ -135,23 +135,38 @@ namespace Khamitova4432.Windows
                     };
                     var result = MLModel1.Predict(sampleData);
                     MessageBox.Show($"Риск: {result.Score}");
+                    try
+                    {
+                        var newRisk = new Risk
+                        {
+                            Id = _con.Risks.Max(r => r.Id)+1,
+                            PatientId = idP, 
+                            CalculatedRisk = Convert.ToInt32(result.Score), 
+                            DateOfCalculated = DateTime.Now
+                        };
+                        _con.Risks.Add(newRisk);
+                        _con.SaveChanges();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ошибка при занесении риска в БД");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Заполните все поля");
                 }
-
             }
             catch
             {
                 MessageBox.Show("Ошибка");
             }
-
             if (identifr == 0)
             {
-                //PatientWindow pw = new PatientWindow();
-                //pw.Show();
-                //Close();
+                var selectedPatient = _con.Patients.FirstOrDefault(u => u.Id == idP);
+                PatientWindow pw = new PatientWindow(selectedPatient);
+                pw.Show();
+                Close();
             }
             else
             {
