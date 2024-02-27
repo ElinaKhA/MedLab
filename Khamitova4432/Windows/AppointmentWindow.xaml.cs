@@ -30,9 +30,9 @@ namespace Khamitova4432.Windows
         {
             if (identifr == 0)
             {
-                PatientWindow pw = new PatientWindow();
-                pw.Show();
-                Close();
+                //PatientWindow pw = new PatientWindow();
+                //pw.Show();
+                //Close();
             }
             else
             {
@@ -53,9 +53,9 @@ namespace Khamitova4432.Windows
         private void SignUpBtn_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Успешно");
-            PatientWindow pw = new PatientWindow();
-            pw.Show();
-            Close();
+            //PatientWindow pw = new PatientWindow();
+            //pw.Show();
+            //Close();
         }
     }
 }

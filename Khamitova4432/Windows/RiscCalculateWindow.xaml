@@ -50,15 +50,15 @@
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
             <Label Grid.Row="2" Grid.Column="0" Content="СКФ" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
-            <ComboBox Grid.Row="1" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="2" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="3" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="4" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="5" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="6" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="7" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
-            <ComboBox Grid.Row="8" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right"/>
-            <ComboBox Grid.Row="9" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right"/>
+            <ComboBox Name="pscvrmCb" Grid.Row="1" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
+            <TextBox Name="mdrdTb" Grid.Row="2" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
+            <TextBox Name="glucoseTb" Grid.Row="3" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
+            <TextBox Name="holesterolTb" Grid.Row="4" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
+            <TextBox Name="sistprTb" Grid.Row="5" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
+            <TextBox Name="diastprTb" Grid.Row="6" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
+            <TextBox Name="bmiTb" Grid.Row="7" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right" />
+            <ComboBox Name="hypertensionCb" Grid.Row="8" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right"/>
+            <ComboBox Name="smokingCb" Grid.Row="9" Grid.Column="1" Width="150" Height="25" HorizontalAlignment="Right"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Уровень глюкозы" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
             <Label Grid.Row="4" Grid.Column="0" Content="Холестерин" FontFamily="Arial" 

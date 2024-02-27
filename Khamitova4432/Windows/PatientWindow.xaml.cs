@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Khamitova4432.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace Khamitova4432.Windows
 {
@@ -19,9 +21,12 @@ namespace Khamitova4432.Windows
     /// </summary>
     public partial class PatientWindow : Window
     {
-        public PatientWindow()
+        int idP = 0;
+        public PatientWindow(Patient patient)
         {
             InitializeComponent();
+            fiolb.Content = $"{patient.Surname} {patient.Name} {patient.LastName}";
+            idP = patient.Id;
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -33,7 +38,7 @@ namespace Khamitova4432.Windows
 
         private void RiskWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            RiscCalculateWindow rw = new RiscCalculateWindow(0, 1);
+            RiscCalculateWindow rw = new RiscCalculateWindow(0, idP);
             rw.Show();
             Close();
         }
