@@ -35,7 +35,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Content="Пациент ФИО" FontFamily="Arial" 
+            <Label Name="fioplb"  Grid.Row="0" Content="Пациент ФИО" FontFamily="Arial" 
                    VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
             <Button Grid.Row="1" Height="30" Width="170" Margin="0,0,0,10"
                     Content="Вычислить риск" FontSize="14" FontFamily="Arial" Background="#FF679FD1" 
@@ -51,7 +51,7 @@
                     BorderBrush="#FF679FD1" Foreground="White" Name="AppointmentWinBtn" Click="AppointmentWinBtn_Click"/>            
             <Button Grid.Row="5" Height="30" Width="240" Margin="0,0,0,10"
                     Content="Редактировать профиль пациента" FontSize="14" FontFamily="Arial" Background="#FF679FD1" 
-                    BorderBrush="#FF679FD1" Foreground="White" Name="EditProfileWinBtn"/>
+                    BorderBrush="#FF679FD1" Foreground="White" Name="EditProfileWinBtn" Click="EditProfileWinBtn_Click"/>
         </Grid>
         <Button Grid.Row="2" Grid.Column="0" Height="30" Width="150" Margin="0,10,0,0"
                     Content="Назад" FontSize="14" FontFamily="Arial" Background="#FF91AFC9" 

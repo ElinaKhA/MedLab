@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Khamitova4432.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +20,21 @@ namespace Khamitova4432.Windows
     /// </summary>
     public partial class PatientProfileForDoctorWindow : Window
     {
-        public PatientProfileForDoctorWindow()
+        Doctor docw;
+        Patient patw;
+        public PatientProfileForDoctorWindow(Patient patient, Doctor doctor)
         {
             InitializeComponent();
+            fioplb.Content = $"Пациент: {patient.Surname} {patient.Name} {patient.LastName}";
+            docw = doctor;
+            patw= patient;
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            //WorkWithPatientsWindow pw = new WorkWithPatientsWindow();
-            //pw.Show();
-            //Close();
+            WorkWithPatientsWindow pw = new WorkWithPatientsWindow(docw);
+            pw.Show();
+            Close();
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -40,30 +46,35 @@ namespace Khamitova4432.Windows
 
         private void RiskWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            RiscCalculateWindow rw = new RiscCalculateWindow(1, 1);
+            RiscCalculateWindow rw = new RiscCalculateWindow(docw.Id, patw);
             rw.Show();
             Close();
         }
 
         private void TreatPlanWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            TreatmentPlanDoctorWindow tw = new TreatmentPlanDoctorWindow();
+            TreatmentPlanDoctorWindow tw = new TreatmentPlanDoctorWindow(docw,patw);
             tw.Show();
             Close();
         }
 
         private void AddLabResultsWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            LabResultsAddWindow lw = new LabResultsAddWindow();
+            LabResultsAddWindow lw = new LabResultsAddWindow(docw, patw);
             lw.Show();
             Close();
         }
 
         private void AppointmentWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            AppointmentWindow aw = new AppointmentWindow(1,1);
+            AppointmentWindow aw = new AppointmentWindow(docw.Id, patw);
             aw.Show();
             Close();
+        }
+
+        private void EditProfileWinBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
