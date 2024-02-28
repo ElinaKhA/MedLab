@@ -20,9 +20,25 @@ namespace Khamitova4432.Windows
     /// </summary>
     public partial class TreatmentPlanWindow : Window
     {
+        Patient patw;
         public TreatmentPlanWindow(Patient patient)
         {
             InitializeComponent();
+            try
+            {
+                patw = patient;
+                fiolb.Content = $"{patient.Surname} {patient.Name} {patient.LastName}";
+                var lastRisk = patient.Risks.OrderByDescending(r => r.DateOfCalculated).FirstOrDefault();
+                if (lastRisk != null)
+                {
+                    risklb.Content = $"Риск: {lastRisk.CalculatedRisk}";
+                }
+                else
+                {
+                    risklb.Content = "Риск не вычислен";
+                }
+            }
+            catch { MessageBox.Show("Ошибка"); }
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -34,9 +50,9 @@ namespace Khamitova4432.Windows
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            //PatientWindow pw = new PatientWindow();
-            //pw.Show();
-            //Close();
+            PatientWindow pw = new PatientWindow(patw);
+            pw.Show();
+            Close();
         }
     }
 }
