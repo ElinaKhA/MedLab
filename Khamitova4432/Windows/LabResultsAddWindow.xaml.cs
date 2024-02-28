@@ -79,6 +79,7 @@ namespace Khamitova4432.Windows
 
                     var newLabResult = new LabResult
                     {
+                        Id = _con.LabResults.Max(r => r.Id) + 1,
                         PatientId = patw.Id,
                         DateOfResults = DateTime.Now,
                         SKF = Convert.ToSingle(mdrdTb.Text),
