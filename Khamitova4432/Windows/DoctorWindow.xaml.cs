@@ -69,19 +69,26 @@ namespace Khamitova4432.Windows
 
         private void AppointmentsBtn_Click(object sender, RoutedEventArgs e)
         {
-         
-            var query = from appointment in _con.Appointments
-                        join freeAppointment in _con.FreeAppointments on appointment.FreeAppointmentId equals freeAppointment.Id
-                        join patient in _con.Patients on appointment.PatientId equals patient.Id
-                        where appointment.StatusId == 1 && freeAppointment.DoctorId == dId
-                        select new
-                        {
-                            Date = freeAppointment.DateTimeOfAppointment,
-                            PatientName = patient.Surname + " " + patient.Name + " " + patient.LastName
-                        };
+            try
+            {
+                var query = from appointment in _con.Appointments
+                            join freeAppointment in _con.FreeAppointments on appointment.FreeAppointmentId equals freeAppointment.Id
+                            join patient in _con.Patients on appointment.PatientId equals patient.Id
+                            where appointment.StatusId == 1 && freeAppointment.DoctorId == dId
+                            select new
+                            {
+                                Date = freeAppointment.DateTimeOfAppointment,
+                                PatientName = patient.Surname + " " + patient.Name + " " + patient.LastName
+                            };
 
-            appointmentsdg.ItemsSource = query.ToList();
-            appointmentsdg.Visibility = Visibility.Visible;
+                appointmentsdg.ItemsSource = query.ToList();
+                appointmentsdg.Visibility = Visibility.Visible;
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
+           
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
