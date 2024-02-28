@@ -1,6 +1,7 @@
 ﻿using Khamitova4432.DataBase;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,14 +22,14 @@ namespace Khamitova4432.Windows
     public partial class RiscCalculateWindow : Window
     {
         int identifr;
-        int idP = 0;
+        Patient selectedPatient;
         medicdbContext _con = new medicdbContext();
 
-        public RiscCalculateWindow(int idrole, int id)
+        public RiscCalculateWindow(int idrole, Patient patient)
         {
             InitializeComponent();
             identifr= idrole;
-            idP = id;
+            selectedPatient = patient;
             pscvrmCb.Items.Add("Первичный");
             pscvrmCb.Items.Add("Вторичный");
             hypertensionCb.Items.Add("Нет");
@@ -36,6 +37,40 @@ namespace Khamitova4432.Windows
             smokingCb.Items.Add("Никогда не курил");
             smokingCb.Items.Add("Раньше курил");
             smokingCb.Items.Add("Да");
+            try
+            {
+                var lastLabResult = _con.LabResults.Where(lr => lr.PatientId == selectedPatient.Id).OrderByDescending(lr => lr.DateOfResults).FirstOrDefault();
+                if (lastLabResult != null)
+                {
+                    mdrdTb.Text = lastLabResult.SKF.ToString();
+                    glucoseTb.Text = lastLabResult.Glucose.ToString();
+                    holesterolTb.Text = lastLabResult.Cholesterol.ToString();
+                    sistprTb.Text = lastLabResult.SystolicBloodPressure.ToString();
+                    diastprTb.Text = lastLabResult.DiastolicBloodPressure.ToString();
+                    bmiTb.Text = lastLabResult.BMI.ToString();
+
+                    hypertensionCb.SelectedItem = lastLabResult.Hypertension == 1 ? "Да" : "Нет";
+                    switch (lastLabResult.Smoking)
+                    {
+                        case 0:
+                            smokingCb.SelectedItem = "Никогда не курил";
+                            break;
+                        case 1:
+                            smokingCb.SelectedItem = "Раньше курил";
+                            break;
+                        case 2:
+                            smokingCb.SelectedItem = "Да";
+                            break;
+                        default:
+                            smokingCb.SelectedItem = null;
+                            break;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -49,14 +84,14 @@ namespace Khamitova4432.Windows
         {
             if (identifr==0)
             {
-                var selectedPatient = _con.Patients.FirstOrDefault(u => u.Id == idP);
                 PatientWindow pw = new PatientWindow(selectedPatient);
                 pw.Show();
                 Close();
             }
             else
             {
-                PatientProfileForDoctorWindow dw = new PatientProfileForDoctorWindow();
+                var selectedDoctor = _con.Doctors.FirstOrDefault(d => d.Id == identifr);
+                PatientProfileForDoctorWindow dw = new PatientProfileForDoctorWindow(selectedPatient, selectedDoctor);
                 dw.Show();
                 Close();
             }
@@ -102,7 +137,6 @@ namespace Khamitova4432.Windows
                     {
                         pscvrm = 1;
                     }
-                    var selectedPatient = _con.Patients.FirstOrDefault(u => u.Id == idP);
                     DateTime today = DateTime.Today;
                     int ageP = today.Year - selectedPatient.BirthDate.Year;
                     if (selectedPatient.BirthDate.AddYears(ageP) > today)
@@ -140,7 +174,7 @@ namespace Khamitova4432.Windows
                         var newRisk = new Risk
                         {
                             Id = _con.Risks.Max(r => r.Id)+1,
-                            PatientId = idP, 
+                            PatientId = selectedPatient.Id, 
                             CalculatedRisk = Convert.ToInt32(result.Score), 
                             DateOfCalculated = DateTime.Now
                         };
@@ -163,14 +197,14 @@ namespace Khamitova4432.Windows
             }
             if (identifr == 0)
             {
-                var selectedPatient = _con.Patients.FirstOrDefault(u => u.Id == idP);
                 PatientWindow pw = new PatientWindow(selectedPatient);
                 pw.Show();
                 Close();
             }
             else
             {
-                PatientProfileForDoctorWindow dw = new PatientProfileForDoctorWindow();
+                var selectedDoctor = _con.Doctors.FirstOrDefault(d => d.Id == identifr);
+                PatientProfileForDoctorWindow dw = new PatientProfileForDoctorWindow(selectedPatient, selectedDoctor);
                 dw.Show();
                 Close();
             }
