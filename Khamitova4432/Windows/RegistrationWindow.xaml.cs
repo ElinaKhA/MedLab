@@ -52,13 +52,22 @@ namespace Khamitova4432.Windows
                 {
                     genid = 2;
                 }
+
+                var login = etb.Text;
+
+                if (_con.Patients.Any(p => p.Email == login) || _con.Doctors.Any(d => d.Email == login))
+                {
+                    MessageBox.Show("Пользователь с таким логином уже существует.");
+                    return;
+                }
+
                 var newPatient = new Patient
                 {
                     Id = _con.Patients.Max(r => r.Id) + 1,
                     Surname = ftb.Text,
                     Name = ntb.Text,
                     LastName = ltb.Text,
-                    Email = etb.Text,
+                    Email = login,
                     Password = ptb.Text,
                     BirthDate = Convert.ToDateTime(dtb.Text),
                     GenderId = genid
