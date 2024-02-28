@@ -25,6 +25,15 @@ namespace Khamitova4432.Windows
         {
             InitializeComponent();
             doct = doctor;
+            try
+            {
+                using (var context = new medicdbContext())
+                {
+                    var patients = context.Patients.ToList(); 
+                    patientsdg.ItemsSource = patients;
+                }
+            }
+            catch { MessageBox.Show("Ошибка"); }
         }
 
         private void RegPatientBtn_Click(object sender, RoutedEventArgs e)
@@ -48,12 +57,36 @@ namespace Khamitova4432.Windows
             Close();
         }
 
-        private void NextBtn_Click(object sender, RoutedEventArgs e)
+        private void patientsdg_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //тут реализовать выбор из списка
-            PatientProfileForDoctorWindow pw = new PatientProfileForDoctorWindow();
-            pw.Show();
-            Close();
+            try
+            {
+                Patient selectedPatient = (Patient)patientsdg.SelectedItem;
+                if (selectedPatient != null)
+                {
+                    PatientProfileForDoctorWindow pw = new PatientProfileForDoctorWindow(selectedPatient, doct);
+                    pw.Show();
+                    Close();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
+        }
+
+        private void findpatienttb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = findpatienttb.Text.ToLower(); 
+            using (var context = new medicdbContext())
+            {
+                var patients = context.Patients.Where(p =>
+                    p.Surname.ToLower().Contains(searchText) || 
+                    p.Name.ToLower().Contains(searchText) ||    
+                    p.LastName.ToLower().Contains(searchText)   
+                ).ToList();
+                patientsdg.ItemsSource = patients; 
+            }
         }
     }
 }
