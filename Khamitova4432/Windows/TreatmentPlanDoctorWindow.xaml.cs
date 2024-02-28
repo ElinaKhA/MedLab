@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Khamitova4432.DataBase;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,29 @@ namespace Khamitova4432.Windows
     /// </summary>
     public partial class TreatmentPlanDoctorWindow : Window
     {
-        public TreatmentPlanDoctorWindow()
+        Doctor docw;
+        Patient patw;
+        medicdbContext _con = new medicdbContext();
+        public TreatmentPlanDoctorWindow(Doctor doctor, Patient patient)
         {
             InitializeComponent();
+            try
+            {
+                docw = doctor;
+                patw = patient;
+                fiolb.Content = $"{patient.Surname} {patient.Name} {patient.LastName}";
+                var patientfl = _con.Patients.SingleOrDefault(p => p.Id == patient.Id);
+                var lastRisk = patientfl.Risks.OrderByDescending(r => r.DateOfCalculated).FirstOrDefault();
+                if (lastRisk != null)
+                {
+                    rlb.Content = $"Риск: {lastRisk.CalculatedRisk}";
+                }
+                else
+                {
+                    rlb.Content = "Риск не вычислен";
+                }
+            }
+            catch { MessageBox.Show("Ошибка"); }
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -33,7 +55,7 @@ namespace Khamitova4432.Windows
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            PatientProfileForDoctorWindow pw = new PatientProfileForDoctorWindow();
+            PatientProfileForDoctorWindow pw = new PatientProfileForDoctorWindow(patw, docw);
             pw.Show();
             Close();
         }
@@ -45,7 +67,7 @@ namespace Khamitova4432.Windows
 
         private void EditPlanBtn_Click(object sender, RoutedEventArgs e)
         {
-            //текстбокс становится открытым для редактирования, затем изменыяется текст, открывается кнопка сохранить 
+            //текстбокс становится открытым для редактирования, затем изменяется текст, открывается кнопка сохранить 
         }
     }
 }
