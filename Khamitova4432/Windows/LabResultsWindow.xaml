@@ -52,35 +52,35 @@
                    FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,10"/> 
                 <Label Grid.Row="2" Grid.Column="0" Content="СКФ" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
-                <Label Grid.Row="2" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
+                <Label Name="mdrdlb" Grid.Row="2" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
                    FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,10"/> 
                 <Label Grid.Row="3" Grid.Column="0" Content="Уровень глюкозы" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
-                <Label Grid.Row="3" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
+                <Label Name="glucoselb" Grid.Row="3" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
                    FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,10"/>   
                 <Label Grid.Row="4" Grid.Column="0" Content="Холестерин" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
-                <Label Grid.Row="4" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
+                <Label Name="holesterollb" Grid.Row="4" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
                    FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,10"/>
                 <Label Grid.Row="5" Grid.Column="0" Content="Систолическое давление" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
-                <Label Grid.Row="5" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
+                <Label Name="sistlb" Grid.Row="5" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
                    FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,10"/>                
                 <Label Grid.Row="6" Grid.Column="0" Content="Диастолическое давление" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
-                <Label Grid.Row="6" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
+                <Label Name="diastlb" Grid.Row="6" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
                    FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,10"/>                
                 <Label Grid.Row="7" Grid.Column="0" Content="BMI" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
-                <Label Grid.Row="7" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
+                <Label Name="bmilb" Grid.Row="7" Grid.Column="1" Content="хх" HorizontalAlignment="Right"
                    FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,10"/>                
                 <Label Grid.Row="8" Grid.Column="0" Content="Гипертония" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
-                <Label Grid.Row="8" Grid.Column="1" Content="Да/Нет" HorizontalAlignment="Right"
+                <Label Name="hyperlb" Grid.Row="8" Grid.Column="1" Content="Да/Нет" HorizontalAlignment="Right"
                    FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,10"/>                
                 <Label Grid.Row="9" Grid.Column="0" Content="Курение" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Left"/>
-                <Label Grid.Row="9" Grid.Column="1" Content="Да/Нет" HorizontalAlignment="Right"
+                <Label Name="smolb" Grid.Row="9" Grid.Column="1" Content="Да/Нет" HorizontalAlignment="Right"
                    FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,10,10"/>
         </Grid>
         <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="30" Width="180" 
