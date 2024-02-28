@@ -23,6 +23,7 @@ namespace Khamitova4432.Windows
     {
         int idP = 0;
         medicdbContext _con = new medicdbContext();
+        Patient patw;
         public PatientWindow(Patient patient)
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace Khamitova4432.Windows
             {
                 risklb.Content = "Риск не вычислен";
             }
+            patw = patient;
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
@@ -48,14 +50,14 @@ namespace Khamitova4432.Windows
 
         private void RiskWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            RiscCalculateWindow rw = new RiscCalculateWindow(0, idP);
+            RiscCalculateWindow rw = new RiscCalculateWindow(0, patw);
             rw.Show();
             Close();
         }
 
         private void AppointmentWinBtn_Click(object sender, RoutedEventArgs e)
         {
-            AppointmentWindow aw = new AppointmentWindow(0,idP);
+            AppointmentWindow aw = new AppointmentWindow(0,patw);
             aw.Show();
             Close();
         }
