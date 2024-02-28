@@ -40,9 +40,9 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Главная страница" FontFamily="Arial" 
                    VerticalAlignment="Center" FontSize="14" HorizontalAlignment="Center"/>
-            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="ФИО" FontFamily="Arial" 
+            <Label Name="fiolb" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Content="ФИО" FontFamily="Arial" 
                    VerticalAlignment="Center"  Margin="0,0,10,10" HorizontalAlignment="Center"/>
-            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Предстоящий прием: хх.хх.хх в хх.хх ФИО пациента" HorizontalAlignment="Center"
+            <Label Name="nextapplb" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Предстоящий прием: хх.хх.хх в хх.хх ФИО пациента" HorizontalAlignment="Center"
                    FontFamily="Arial" VerticalAlignment="Center"  Margin="0,0,0,10"/>
             <Button Grid.Row="3" Grid.Column="0" Height="30" Width="150" Margin="0,0,0,10"
                     Content="Записи" FontSize="14" FontFamily="Arial" Background="#FF679FD1" 
@@ -50,6 +50,7 @@
             <Button Grid.Row="3" Grid.Column="1" Height="30" Width="170" Margin="0,0,0,10"
                     Content="Работа с пациентами" FontSize="14" FontFamily="Arial" Background="#FF679FD1" 
                     BorderBrush="#FF679FD1" Foreground="White" Name="WorkWithPatientsWinBtn" Click="WorkWithPatientsWinBtn_Click" />
+            <DataGrid Name="appointmentsdg" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"></DataGrid>
         </Grid>
     </Grid>
 </Window>

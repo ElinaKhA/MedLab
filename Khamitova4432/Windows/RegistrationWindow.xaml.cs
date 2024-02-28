@@ -76,7 +76,7 @@ namespace Khamitova4432.Windows
                 else
                 {
                     var selectedDoctor = _con.Doctors.FirstOrDefault(d => d.Id == roleid);
-                    DoctorWindow dw = new DoctorWindow(selectedDoctor);
+                    WorkWithPatientsWindow dw = new WorkWithPatientsWindow(selectedDoctor);
                     dw.Show();
                     Close();
                 }
@@ -85,7 +85,6 @@ namespace Khamitova4432.Windows
             {
                 MessageBox.Show("Ошибка");
             }
-           
         }
     }
 }
