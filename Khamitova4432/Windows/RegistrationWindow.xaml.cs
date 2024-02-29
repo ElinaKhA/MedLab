@@ -60,12 +60,7 @@ namespace Khamitova4432.Windows
                     MessageBox.Show("Пользователь с таким логином уже существует.");
                     return;
                 }
-DateTime birthDate;
-        if (!DateTime.TryParseExact(dtb.Text, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out birthDate))
-        {
-            MessageBox.Show("Введите корректную дату рождения в формате ДД.ММ.ГГГГ.");
-            return;
-        }
+
                 var newPatient = new Patient
                 {
                     Id = _con.Patients.Max(r => r.Id) + 1,
